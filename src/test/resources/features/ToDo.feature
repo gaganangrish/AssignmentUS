@@ -17,27 +17,24 @@
 ## (Comments)
 
 #Sample Feature Definition Template
-@tag
-Feature: Title of your feature
-	I want to use this template for my feature file
+@ToDoFeature
+Feature: ToDo App Feature
+	Background:
+	Given I am on TodoMVC App home page
 
-@tag1
-Scenario: Title of your scenario
-Given I want to write a step with precondition
-	And some other precondition
-When I complete action
-	And some other action
-	And yet another action
-Then I validate the outcomes
-	And check more outcomes
+@Test1
+Scenario: Click on AngularJS link
+	When I click on AngularJS link on ToDoMVC app home page
+	Then I should navigate to ToDo App page
+	And I should see a ToDo bar on the ToDo app page
 
-@tag2
-Scenario Outline: Title of your scenario outline
-Given I want to write a step with <name>
-When I check for the <value> in step
-Then I verify the <status> in step
-
-Examples:
-    | name  |value | status |
-    | name1 |  5   | success|
-    | name2 |  7   | Fail   |
+#@tag2
+#Scenario Outline: Title of your scenario outline
+#Given I want to write a step with <name>
+#When I check for the <value> in step
+#Then I verify the <status> in step
+#
+#Examples:
+#    | name  |value | status |
+#    | name1 |  5   | success|
+#    | name2 |  7   | Fail   |
