@@ -11,12 +11,14 @@ import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
 import cucumber.api.CucumberOptions;
 
 /**
+ * Runner for parallel thread 1
+ * 
  * @author gagan_000
  *
  */
 @RunWith(ExtendedCucumber.class)
 @ExtendedCucumberOptions(jsonReport = "target/report1/cucumber1.json", 
-		retryCount = 1, 
+//		retryCount = 1, 
 		detailedReport = true, detailedAggregatedReport = true, overviewReport = true,
 		coverageReport = true,
 		jsonUsageReport = "target/report1/cucumber-usage.json", usageReport = true, toPDF = true, excludeCoverageTags = {
@@ -26,8 +28,8 @@ import cucumber.api.CucumberOptions;
         "usage:target/report1/cucumber-usage.json", "junit:target/report1/cucumber-results.xml" }, features = { "src/test/resources/features/" }, 
         format = {"pretty", "json:target/report1/cucumber1.json", "html:target/report1/html/" }, 
         glue = { "com.UniSuper.StepDefs/" },
- 	tags = {("@Test1")}
+ 	tags = {("@Thread1")}
 )
-public class CucumberRunner {
+public class CucumberRunner1 {
 
 }

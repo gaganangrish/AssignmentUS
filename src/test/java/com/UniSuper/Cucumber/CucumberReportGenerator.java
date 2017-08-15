@@ -22,10 +22,12 @@ import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.Reportable;
 
 /**
- * @author gagan_000
  * This Cucumber runner file combines the cucumber.json file created by various parallel running threads and 
  * produces a single consolidate report for test results.
  * This runner file should be executed once the build for executing the tests has finished. 
+ *
+ *
+ * @author gagan_000
  */
 
 @RunWith(ExtendedCucumber.class)
@@ -38,26 +40,21 @@ import net.masterthought.cucumber.Reportable;
 		"junit:target/cucumber-results.xml" }, features = { "src/test/resources/features/" }, format = {
 				"pretty", "json:target/cucumber.json",
 				"html:target/html/" }, glue = { "com.UniSuper.StepDefs/" },
-				tags = { "@Non Existing Tag" })
+				tags = { "@Report" })
 
 public class CucumberReportGenerator extends BaseClass {
 
 	@BeforeClass
 	public static void beforeClass() throws IOException {
-		// String workingDir = System.getProperty("user.dir").replace("\\", "/");
-		// File source = new File(workingDir + "/target/html");
-		// File dest = new File(workingDir + "/target/html-copied");
-		// copyFolder(source, dest);
 
+		System.out.println("Report generator before class +++++++++++++++++++++++");
 		String userDir = System.getProperty("user.dir");
 		moveFiles(userDir + "/target/report1/cucumber1.json", userDir + "/target/cucumber1.json");
 		moveFiles(userDir + "/target/report2/cucumber2.json", userDir + "/target/cucumber2.json");
-		moveFiles(userDir + "/target/report3/cucumber3.json", userDir + "/target/cucumber3.json");
-		moveFiles(userDir + "/target/report4/cucumber4.json", userDir + "/target/cucumber4.json");
-		moveFiles(userDir + "/target/report5/cucumber5.json", userDir + "/target/cucumber5.json");
-		moveFiles(userDir + "/src/main/resources/log4j.dtd", userDir + "/target/classes");
-		moveFiles(userDir + "/src/main/resources/log4j.properties", userDir + "/target/classes");
-		moveFiles(userDir + "/src/main/resources/log4j2.xml", userDir + "/target/classes");
+
+//		moveFiles(userDir+"/src/main/resources/log4j.dtd", userDir+"/target/classes");
+//		moveFiles(userDir+"/src/main/resources/log4j.properties", userDir+"/target/classes");
+//		moveFiles(userDir+"/src/main/resources/log4j2.xml", userDir+"/target/classes");
 
 	}
 
@@ -68,12 +65,9 @@ public class CucumberReportGenerator extends BaseClass {
 			List<String> jsonFiles = new ArrayList<String>();
 			jsonFiles.add("target/cucumber1.json");
 			jsonFiles.add("target/cucumber2.json");
-			jsonFiles.add("target/cucumber3.json");
-			jsonFiles.add("target/cucumber4.json");
-			jsonFiles.add("target/cucumber5.json");
 
 			String buildNumber = "1";
-			String projectName = "Jetstar Redev Automation";
+			String projectName = "UniSuper Coding Assignment";
 			boolean runWithJenkins = false;
 			boolean parallelTesting = true;
 
