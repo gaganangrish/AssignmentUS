@@ -16,11 +16,11 @@ import com.UniSuper.baseClass.BaseClass;
 public class CommonUtils extends BaseClass{
 	
 	final static Logger logger = Logger.getLogger(CommonUtils.class);
-//	String baseURL = System.getProperty("webdriver.base.url");
-//	String browserName = System.getProperty("webdriver.browser.name");
+	String baseURL = System.getProperty("webdriver.base.url");
+	String browserName = System.getProperty("webdriver.browser.name");
 	
-	String baseURL = "http://todomvc.com/";
-	String browserName = "chrome";
+//	String baseURL = "http://todomvc.com/";
+//	String browserName = "chrome";
 	
 	
 	public WebDriver launchBrowser(WebDriver driver) {

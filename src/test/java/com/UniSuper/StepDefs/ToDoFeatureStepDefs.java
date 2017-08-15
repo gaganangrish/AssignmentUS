@@ -85,7 +85,8 @@ public class ToDoFeatureStepDefs extends BaseClass{
 	public void i_should_see_a_ToDo_bar_on_the_ToDo_app_page() throws Throwable {
 		ToDoAngularJS page = PageFactory.initElements(driver, ToDoAngularJS.class);
 		boolean isDisplayed = waitForElementToBeDisplayed(page.newToDoBar, 2, driver);
-		Assert.assertTrue("ToDo bar is not showing on the page. Current page URL: "+driver.getCurrentUrl(), isDisplayed);
+		Assert.assertTrue(false);
+//		Assert.assertTrue("ToDo bar is not showing on the page. Current page URL: "+driver.getCurrentUrl(), isDisplayed);
 	}
 	
 	@Given("^I want to see test run report$")

@@ -174,7 +174,7 @@ public class BaseClass {
 		String browserName = cap.getBrowserName().toLowerCase();
 		String os = cap.getPlatform().toString();
 		String v = cap.getVersion().toString();
-		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS).withName(filename+"_"+browserName+"_"+v+"_"+os+"_"+formattedDate+".png").save(foldername+"//");
+		Shutterbug.shootPage(driver, ScrollStrategy.BOTH_DIRECTIONS).withName(filename+"_"+browserName+"_"+v+"_"+os+"_"+formattedDate).save(foldername+"//");
 
 	}
 }

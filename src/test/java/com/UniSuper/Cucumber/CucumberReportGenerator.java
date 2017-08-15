@@ -79,13 +79,9 @@ public class CucumberReportGenerator extends BaseClass {
 
 			// addidtional metadata presented on main page
 			configuration.addClassifications("Platform", "Windows");
-			configuration.addClassifications("Browser", "Chrome");
-			// configuration.addClassifications("Functional Test URL",
-			// BaseURLFunctionalTests);
-			// configuration.addClassifications("Fare cache Functional Test URL",
-			// BaseURLFunctionalTestsFareCache);
-			// configuration.addClassifications("Holidays Functional Test URL",
-			// BaseURLFunctionalTestsSearchHolidays);
+			configuration.addClassifications("Browser", System.getProperty("webdriver.browser.name"));
+			configuration.addClassifications("Enviornment URL",System.getProperty("webdriver.base.url"));
+			configuration.addClassifications("Number of parallel threads","2");
 
 			ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
 			Reportable result = reportBuilder.generateReports();
