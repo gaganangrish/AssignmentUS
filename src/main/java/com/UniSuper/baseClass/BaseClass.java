@@ -61,7 +61,7 @@ public abstract class BaseClass {
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 			Driver = new ChromeDriver();
 		} else if (BrowserType.contentEquals("ie")) {
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "src/test/resources/drivers/IEDriverServer.exe");
 			Driver = new InternetExplorerDriver();
 		}
 
@@ -112,6 +112,12 @@ public abstract class BaseClass {
 		aobj.moveToElement(ele).perform();
 		return true;
 	}
+	
+	public static void waitForPageLoad(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 30); wait.until(ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";"));
+	}
+	
+	
 	public static boolean waitAndClick(WebElement ele, int timeout, WebDriver driver, String eleName) {
 		WebElement element = null;
 		Actions aobj = new Actions(driver);
@@ -227,7 +233,6 @@ public abstract class BaseClass {
 		char[] charArr = text.toCharArray();
 		for (int i = 0; i < charArr.length; i++) {
 			pressChar(charArr[i]);
-			Thread.sleep(100);
 		}
 		
 		robj.keyPress(KeyEvent.VK_ENTER);

@@ -37,6 +37,7 @@ public class ToDoFeatureStepDefs extends BaseClass{
 	private Scenario scenario;
 	final static Logger logger = Logger.getLogger(ToDoFeatureStepDefs.class);
 	ArrayList<Integer> updatedIndexes = new ArrayList<Integer>();
+	String currentURL;
 
 	@Before
 	public void before(Scenario scenario) {
@@ -76,11 +77,12 @@ public class ToDoFeatureStepDefs extends BaseClass{
 	public void i_click_on_AngularJS_link_on_ToDoMVC_app_home_page() throws Throwable {
 		ToDoMVCHome page = PageFactory.initElements(driver, ToDoMVCHome.class);
 		waitAndClick(page.angularJSLink, 2, driver, "Angular JS link");
+		currentURL = driver.getCurrentUrl();
 	}
 
 	@Then("^I should navigate to ToDo App page$")
 	public void i_should_navigate_to_ToDo_App_page() throws Throwable {
-		String currentURL = driver.getCurrentUrl();
+		waitForPageLoad(driver);
 		String expectedURL = "http://todomvc.com/examples/angularjs/#/";
 		Assert.assertTrue("User is not getting navigated to ToDo app page. Expected URL: " + expectedURL
 				+ ". Actual URL: " + currentURL, currentURL.equalsIgnoreCase(expectedURL));
