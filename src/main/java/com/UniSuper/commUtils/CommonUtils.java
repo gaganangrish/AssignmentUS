@@ -3,6 +3,7 @@
  */
 package com.UniSuper.commUtils;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,14 @@ public class CommonUtils extends BaseClass{
 	
 	
 	public WebDriver launchBrowser(WebDriver driver) {
+		
+		//setting default values for baseURL and browserName
+		if (StringUtils.isEmpty(baseURL)) {
+			baseURL = "http://todomvc.com/";
+		}
+		if (StringUtils.isEmpty(browserName)) {
+			browserName = "chrome";
+		}
 		
 		logger.info("Launching base url: "+baseURL);
 		logger.info("Launhing browser in: "+browserName);
