@@ -12,12 +12,14 @@ import cucumber.api.CucumberOptions;
 
 /**
  * Runner for parallel thread 1
+ * Running all tests which are tagged as Thread1
  * 
  * @author gagan_000
  *
  */
 @RunWith(ExtendedCucumber.class)
 @ExtendedCucumberOptions(jsonReport = "target/report1/cucumber1.json", 
+	//Set retry count for rerunning the failed test cases
 //		retryCount = 1, 
 		detailedReport = true, detailedAggregatedReport = true, overviewReport = true,
 		coverageReport = true,
@@ -29,7 +31,6 @@ import cucumber.api.CucumberOptions;
         format = {"pretty", "json:target/report1/cucumber1.json", "html:target/report1/html/" }, 
         glue = { "com.UniSuper.StepDefs/" },
         tags = {("@Thread1")}
-//		tags = {("@Test1")}
 )
 public class CucumberRunner1 {
 

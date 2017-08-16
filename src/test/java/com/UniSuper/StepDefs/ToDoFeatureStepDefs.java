@@ -26,7 +26,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
- * Step definations
+ * Step definitions for ToDo feature file
  * 
  * @author gagan_000
  *

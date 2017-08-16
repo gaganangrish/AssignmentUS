@@ -24,6 +24,10 @@ public class CommonUtils extends BaseClass{
 //	String browserName = "chrome";
 	
 	
+	/**
+	 * @param driver
+	 * @return
+	 */
 	public WebDriver launchBrowser(WebDriver driver) {
 		
 		//setting default values for baseURL and browserName

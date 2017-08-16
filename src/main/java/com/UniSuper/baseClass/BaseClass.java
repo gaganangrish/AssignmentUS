@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -53,6 +54,10 @@ public abstract class BaseClass {
 	public static String newdate = dateFormat.format(date).toString();
 	public static String foldername = path + newdate;
 
+	/**
+	 * @param BrowserType
+	 * @return
+	 */
 	public static WebDriver BrowserSetup(String BrowserType) {
 		if (BrowserType.contentEquals("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
@@ -63,6 +68,8 @@ public abstract class BaseClass {
 		} else if (BrowserType.contentEquals("ie")) {
 			System.setProperty("webdriver.ie.driver", "src/test/resources/drivers/IEDriverServer.exe");
 			Driver = new InternetExplorerDriver();
+		}else {
+			Assert.fail("Unsupported browser. Only chrome, firefox and ie is supported");
 		}
 
 		Driver.manage().window().maximize();
@@ -107,17 +114,32 @@ public abstract class BaseClass {
 
 	}
 
+	/**
+	 * @param ele
+	 * @param driver
+	 * @return
+	 */
 	public boolean mouseHover(WebElement ele, WebDriver driver) {
 		Actions aobj = new Actions(driver);
 		aobj.moveToElement(ele).perform();
 		return true;
 	}
 	
+	/**
+	 * @param driver
+	 */
 	public static void waitForPageLoad(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 30); wait.until(ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";"));
 	}
 	
 	
+	/**
+	 * @param ele
+	 * @param timeout
+	 * @param driver
+	 * @param eleName
+	 * @return
+	 */
 	public static boolean waitAndClick(WebElement ele, int timeout, WebDriver driver, String eleName) {
 		WebElement element = null;
 		Actions aobj = new Actions(driver);
@@ -162,6 +184,12 @@ public abstract class BaseClass {
 		}
 	}
 	
+	/**
+	 * @param ele
+	 * @param timeout
+	 * @param driver
+	 * @return
+	 */
 	public static boolean waitForElementToBeDisplayed(WebElement ele, int timeout, WebDriver driver){
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeout);
@@ -175,6 +203,10 @@ public abstract class BaseClass {
 		
 	}
 	
+	/**
+	 * @param URL
+	 * @return
+	 */
 	public static boolean GetURL(String URL) {
 
 		Driver.get(URL);
@@ -182,6 +214,12 @@ public abstract class BaseClass {
 
 	}
 	
+	/**
+	 * @param driver
+	 * @param filename
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public static void capturescreenshot(WebDriver driver, String filename) throws IOException, InterruptedException{
 		Thread.sleep(1000);
 		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
@@ -192,6 +230,11 @@ public abstract class BaseClass {
 
 	}
 	
+	/**
+	 * @param myElement
+	 * @param textToEnter
+	 * @return
+	 */
 	public boolean enterTextAndPressEnter(WebElement myElement, String textToEnter) {
 		try {
 			
@@ -209,6 +252,11 @@ public abstract class BaseClass {
 
 	}
 	
+	/**
+	 * @param ele
+	 * @param driver
+	 * @return
+	 */
 	public boolean doubleClickElement(WebElement ele, WebDriver driver) {
 		Actions aobj = new Actions(driver);
 		try {
@@ -221,6 +269,12 @@ public abstract class BaseClass {
 		
 	}
 	
+	/**
+	 * @param text
+	 * @return
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public boolean enterTextUsingRobotClass(String text) throws AWTException, InterruptedException {
 		Robot robj = new Robot();
 		robj.keyPress(KeyEvent.VK_CONTROL);
@@ -240,6 +294,10 @@ public abstract class BaseClass {
 		return true;
 	}
 	
+	/**
+	 * @param ch
+	 * @throws AWTException
+	 */
 	public void pressChar(char ch) throws AWTException {
 		Robot robot = new Robot();
 		switch (ch) {
