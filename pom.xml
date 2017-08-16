@@ -112,6 +112,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+<!-- 		https://github.com/damianszczepanik/cucumber-reporting -->
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>
