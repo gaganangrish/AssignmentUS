@@ -47,14 +47,9 @@ public class CucumberReportGenerator extends BaseClass {
 	@BeforeClass
 	public static void beforeClass() throws IOException {
 
-		System.out.println("Report generator before class +++++++++++++++++++++++");
 		String userDir = System.getProperty("user.dir");
 		moveFiles(userDir + "/target/report1/cucumber1.json", userDir + "/target/cucumber1.json");
 		moveFiles(userDir + "/target/report2/cucumber2.json", userDir + "/target/cucumber2.json");
-
-//		moveFiles(userDir+"/src/main/resources/log4j.dtd", userDir+"/target/classes");
-//		moveFiles(userDir+"/src/main/resources/log4j.properties", userDir+"/target/classes");
-//		moveFiles(userDir+"/src/main/resources/log4j2.xml", userDir+"/target/classes");
 
 	}
 

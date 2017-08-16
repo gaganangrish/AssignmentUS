@@ -25,8 +25,8 @@ public class CommonUtils extends BaseClass{
 	
 	public WebDriver launchBrowser(WebDriver driver) {
 		
-		logger.debug("Launching base url: "+baseURL);
-		logger.debug("Launhing browser in: "+browserName);
+		logger.info("Launching base url: "+baseURL);
+		logger.info("Launhing browser in: "+browserName);
 		
 		driver = BrowserSetup(browserName);
 		if (!GetURL(baseURL)) {

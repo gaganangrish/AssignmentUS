@@ -28,7 +28,8 @@ import cucumber.api.CucumberOptions;
         "usage:target/report1/cucumber-usage.json", "junit:target/report1/cucumber-results.xml" }, features = { "src/test/resources/features/" }, 
         format = {"pretty", "json:target/report1/cucumber1.json", "html:target/report1/html/" }, 
         glue = { "com.UniSuper.StepDefs/" },
- 	tags = {("@Thread1")}
+//        tags = {("@Thread1")}
+		tags = {("@Thread1")}
 )
 public class CucumberRunner1 {
 
