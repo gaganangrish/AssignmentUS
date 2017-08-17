@@ -238,9 +238,7 @@ public abstract class BaseClass {
 	public boolean enterTextAndPressEnter(WebElement myElement, String textToEnter) {
 		try {
 			
-//			myElement.clear();
-			myElement.sendKeys(Keys.BACK_SPACE);
-			myElement.sendKeys(Keys.CONTROL+"a");
+			myElement.clear();
 			myElement.sendKeys(textToEnter);
 			myElement.sendKeys(Keys.ENTER);
 			return true;
